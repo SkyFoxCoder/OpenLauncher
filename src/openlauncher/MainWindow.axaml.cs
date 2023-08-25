@@ -43,6 +43,7 @@ namespace openlauncher
         private async void Window_Opened(object sender, EventArgs e)
         {
             showPreReleaseCheckbox.IsChecked = _configService.PreReleaseChecked;
+            closeLauncherOnPlayCheckbox.IsChecked = _configService.CloseLauncherOnPlayChecked;
             gameListView.SelectedIndex = _configService.SelectingGame;
             _ready = true;
             var selectedItem = gameListView.SelectedItem as GameMenuItem;
@@ -106,6 +107,13 @@ namespace openlauncher
                 return;
             _configService.PreReleaseChecked = showPreReleaseCheckbox.IsChecked ?? false;
             await RefreshAvailableVersionsAsync();
+        }
+        
+        private void closeLauncherOnPlayCheckbox_Changed(object sender, RoutedEventArgs e)
+        {
+            if (!_ready)
+                return;
+            _configService.CloseLauncherOnPlayChecked = closeLauncherOnPlayCheckbox.IsChecked ?? false;
         }
 
         private async void downloadButton_Click(object sender, RoutedEventArgs e)
@@ -178,12 +186,17 @@ namespace openlauncher
 
             try
             {
+                if (closeLauncherOnPlayCheckbox.IsChecked ?? false)
+                    Hide();
                 await _selectedMenuItem.InstallService.Launch();
             }
             catch (Exception ex)
             {
                 ShowError(string.Format(StringResources.FailedToLaunchGame, _selectedMenuItem.Game!.Name), ex);
             }
+            
+            if (closeLauncherOnPlayCheckbox.IsChecked ?? false)
+                Environment.Exit(0);
         }
 
         private async Task RefreshInstalledVersionAsync()
@@ -333,6 +346,7 @@ namespace openlauncher
             updateButton.IsEnabled = value;
             versionDropdown.IsHitTestVisible = value && buildsAvailable;
             showPreReleaseCheckbox.IsEnabled = value;
+            closeLauncherOnPlayCheckbox.IsEnabled = value;
 
             if (value)
             {

@@ -87,6 +87,12 @@ namespace openlauncher.Properties {
             }
         }
         
+        public static string CloseLauncherOnPlay {
+            get {
+                return ResourceManager.GetString("CloseLauncherOnPlay", resourceCulture);
+            }
+        }
+        
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);

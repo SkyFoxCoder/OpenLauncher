@@ -95,11 +95,18 @@
                                         Content="{x:Static p:Resources.Download}"
                                         Click="downloadButton_Click" />
                             </Grid>
-                            <CheckBox x:Name="showPreReleaseCheckbox"
-                                      Margin="0,4"
-                                      Content="{x:Static p:Resources.ShowPreReleaseVersions}"
-                                      Checked="showPreReleaseCheckbox_Changed"
-                                      Unchecked="showPreReleaseCheckbox_Changed" />
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox x:Name="showPreReleaseCheckbox"
+                                          Margin="0,4"
+                                          Content="{x:Static p:Resources.ShowPreReleaseVersions}"
+                                          Checked="showPreReleaseCheckbox_Changed"
+                                          Unchecked="showPreReleaseCheckbox_Changed" />
+                                <CheckBox x:Name="closeLauncherOnPlayCheckbox"
+                                          Margin="20,0"
+                                          Content="{x:Static p:Resources.CloseLauncherOnPlay}"
+                                          Checked="closeLauncherOnPlayCheckbox_Changed"
+                                          Unchecked="closeLauncherOnPlayCheckbox_Changed" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>

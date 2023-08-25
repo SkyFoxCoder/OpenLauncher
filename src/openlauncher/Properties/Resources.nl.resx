@@ -21,6 +21,9 @@
   <data name="ShowPreReleaseVersions" xml:space="preserve">
     <value>Laat pre-release versies zien</value>
   </data>
+  <data name="CloseLauncherOnPlay" xml:space="preserve">
+    <value>Close launcher on Play</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>
   </data>

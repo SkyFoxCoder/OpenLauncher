@@ -21,6 +21,9 @@
   <data name="ShowPreReleaseVersions" xml:space="preserve">
     <value>Montrer les versions instables</value>
   </data>
+  <data name="CloseLauncherOnPlay" xml:space="preserve">
+    <value>Fermer le lanceur à l'exécution du jeu</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Mettre à jour</value>
   </data>
