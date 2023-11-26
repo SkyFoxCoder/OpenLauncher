@@ -21,6 +21,9 @@
   <data name="ShowPreReleaseVersions" xml:space="preserve">
     <value>Mutassa a kiadás előtti verziókat</value>
   </data>
+  <data name="CloseLauncherOnPlay" xml:space="preserve">
+    <value>Close launcher on Play</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Frissítés</value>
   </data>
